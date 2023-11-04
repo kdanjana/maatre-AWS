@@ -22,12 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9w=91xzd^9u5l9cxseqem^-(v+pc5b^618)lj898o6cry80r80'
-#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+#SECRET_KEY = 'django-insecure-9w=91xzd^9u5l9cxseqem^-(v+pc5b^618)lj898o6cry80r80'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = bool(os.environ.get('DEBUG'))
+DEBUG = bool(os.environ.get('DEBUG'))
 
 ALLOWED_HOSTS = ['*']
 
@@ -165,14 +164,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = 'False'
-#EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')           # gmail account used to create app password
-#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')       # app password
-EMAIL_HOST_USER = "maatresall@gmail.com"
-EMAIL_HOST_PASSWORD = "tqdozyqansbhzdmq"
+EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')           # gmail account used to create app password
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')       # app password
+
 
 # AWS Credentials
-AWS_ACCESS_KEY_ID = "AKIAZBHEJIHYJNCKALM2"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
 
 # S3 Configurations
 AWS_STORAGE_BUCKET_NAME = 'maatre-webapp'
@@ -193,10 +191,10 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'maatre_demo',
-        'USER': 'devmaatre',
-        'PASSWORD': 'devpwdpwd',
-        'HOST': 'maatre-db.c9bhai8khw2c.us-east-1.rds.amazonaws.com',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '5432',
     }
 }
