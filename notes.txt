@@ -1,0 +1,7 @@
+after cloning the repo, the following commands are used:
+python manage.py collectstatic
+
+eb init
+eb create
+eb open
+eb deploy
